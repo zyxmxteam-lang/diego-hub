@@ -1,0 +1,74 @@
+[
+  {
+    "id": "claude-code-hooks-guia-completa",
+    "title": "Claude Code Hooks: Guía Completa de Automatización",
+    "summary": "Cómo usar hooks en Claude Code para automatizar flujos de trabajo antes y después de cada acción del agente. Incluye ejemplos prácticos de PreToolUse, PostToolUse y casos de uso reales.",
+    "content": "# Claude Code Hooks: Guía Completa\n\n## ¿Qué son los hooks?\n\nLos hooks en Claude Code son comandos shell que se ejecutan automáticamente en respuesta a eventos del agente. Permiten automatizar flujos de trabajo sin depender de que Claude lo recuerde en cada sesión.\n\n## Tipos de hooks disponibles\n\n| Hook | Cuándo se ejecuta |\n|------|-------------------|\n| `PreToolUse` | Antes de que Claude use una herramienta |\n| `PostToolUse` | Después de que Claude use una herramienta |\n| `Notification` | Cuando Claude genera una notificación |\n| `Stop` | Cuando Claude termina su respuesta |\n\n## Configuración en settings.json\n\n```json\n{\n  \"hooks\": {\n    \"PostToolUse\": [{\n      \"matcher\": \"Write|Edit\",\n      \"hooks\": [{\n        \"type\": \"command\",\n        \"command\": \"echo 'Archivo modificado' >> ~/claude-log.txt\"\n      }]\n    }]\n  }\n}\n```\n\n## Casos de uso prácticos\n\n### 1. Log automático de cambios\nRegistra cada archivo que Claude modifica en un log personal.\n\n### 2. Formateo automático\nEjecuta Prettier o ESLint después de cada edición.\n\n### 3. Notificaciones\nRecibe un sonido o notificación push cuando Claude termina una tarea larga.\n\n### 4. Validaciones de seguridad\nBloquea comandos peligrosos antes de que se ejecuten.\n\n## Conclusión\n\nLos hooks son una de las funciones más poderosas de Claude Code para usuarios avanzados. Permiten crear flujos de trabajo completamente automatizados y personalizados.",
+    "category": "ai-claude",
+    "date": "2026-05-15",
+    "tags": ["claude-code", "hooks", "automatización", "productividad"],
+    "status": "completed",
+    "sources": [
+      { "title": "Claude Code Docs - Hooks", "url": "https://docs.anthropic.com/claude-code/hooks" }
+    ]
+  },
+  {
+    "id": "copywriting-frameworks-2026",
+    "title": "Los 7 Frameworks de Copywriting Más Efectivos en 2026",
+    "summary": "Análisis de los frameworks de copywriting que mejor están funcionando en 2026: PAS, AIDA, Before-After-Bridge y otros. Con ejemplos reales y cuándo usar cada uno.",
+    "content": "# Los 7 Frameworks de Copywriting Más Efectivos en 2026\n\n## Por qué los frameworks siguen siendo relevantes\n\nEn la era de la IA, el copywriting con estructura sigue siendo esencial. Los algoritmos de contenido favorecen la claridad y la intención, y los frameworks te dan exactamente eso.\n\n## Los 7 frameworks esenciales\n\n### 1. PAS (Problem-Agitate-Solution)\nEl clásico que nunca falla para emails y páginas de ventas.\n- **Problem**: Nombra el dolor exacto del cliente\n- **Agitate**: Amplifica las consecuencias\n- **Solution**: Presenta tu oferta como el alivio\n\n### 2. AIDA (Attention-Interest-Desire-Action)\nPerfecto para anuncios pagados y landing pages.\n\n### 3. Before-After-Bridge\nIdeal para testimonios y casos de éxito.\n\n### 4. The 4 U's\nPara headlines: Urgent, Unique, Ultra-specific, Useful.\n\n### 5. FAB (Features-Advantages-Benefits)\nPara copy de producto técnico.\n\n### 6. StoryBrand\nEl cliente es el héroe, tú eres el guía.\n\n### 7. PASTOR\nProblem, Amplify, Story, Testimony, Offer, Response.\n\n## Cuándo usar cada uno\n\n| Framework | Mejor para |\n|-----------|------------|\n| PAS | Emails, VSL |\n| AIDA | Anuncios, LP |\n| BAB | Testimonios |\n| 4 U's | Headlines |\n| FAB | Producto técnico |\n| StoryBrand | Branding completo |\n| PASTOR | Long-form copy |\n\n## La regla de oro de 2026\n\nCombina frameworks: usa AIDA para la estructura y PAS para las secciones de objeción. El resultado es copy que convierte más que cualquier framework solo.",
+    "category": "marketing",
+    "date": "2026-05-14",
+    "tags": ["copywriting", "frameworks", "PAS", "AIDA", "conversión"],
+    "status": "completed",
+    "sources": [
+      { "title": "Copyhackers - Framework Guide", "url": "https://copyhackers.com" }
+    ]
+  },
+  {
+    "id": "vercel-ai-sdk-intro",
+    "title": "Vercel AI SDK: Integrar IA en Apps Next.js en Minutos",
+    "summary": "Guía práctica del Vercel AI SDK para integrar modelos de lenguaje (Claude, GPT-4, Gemini) directamente en aplicaciones Next.js. Streaming, tool use y ejemplos de código.",
+    "content": "# Vercel AI SDK: Integrar IA en Apps Next.js\n\n## ¿Qué es el Vercel AI SDK?\n\nEs una librería de TypeScript para construir apps de IA con streaming de UI, soporte a múltiples proveedores y patterns modernos de React.\n\n## Instalación\n\n```bash\nnpm install ai @ai-sdk/anthropic\n```\n\n## Ejemplo básico con Claude\n\n```typescript\nimport { anthropic } from '@ai-sdk/anthropic';\nimport { streamText } from 'ai';\n\nexport async function POST(req: Request) {\n  const { messages } = await req.json();\n\n  const result = streamText({\n    model: anthropic('claude-sonnet-4-6'),\n    messages,\n  });\n\n  return result.toDataStreamResponse();\n}\n```\n\n## Características clave\n\n### Streaming de UI\nMuestra el texto mientras se genera, sin esperar la respuesta completa.\n\n### Tool Use\nDeja que el modelo llame funciones de tu backend directamente.\n\n### Multi-provider\nCambia entre Claude, GPT-4 y Gemini con un solo cambio de línea.\n\n## Providers soportados\n\n- Anthropic (Claude)\n- OpenAI (GPT-4o)\n- Google (Gemini)\n- Mistral\n- Groq\n\n## Conclusión\n\nEl Vercel AI SDK reduce de horas a minutos la integración de IA en cualquier app de Next.js. Es el estándar de la industria en 2026.",
+    "category": "technology",
+    "date": "2026-05-12",
+    "tags": ["vercel", "AI SDK", "Next.js", "Claude", "streaming"],
+    "status": "completed",
+    "sources": [
+      { "title": "Vercel AI SDK Docs", "url": "https://sdk.vercel.ai" }
+    ]
+  },
+  {
+    "id": "email-subject-lines-que-abren",
+    "title": "Anatomía de un Subject Line que se Abre: Datos de 10M Emails",
+    "summary": "Análisis de patrones en subject lines con tasas de apertura >40%. Longitud óptima, palabras que funcionan vs. las que matan conversiones, y fórmulas probadas.",
+    "content": "# Anatomía de un Subject Line que se Abre\n\n## Los números que importan\n\nBasado en análisis de más de 10 millones de emails enviados en 2025-2026:\n\n- **Longitud óptima**: 28-50 caracteres\n- **Con emoji**: +18% de apertura en B2C\n- **Personalización con nombre**: +22% en promedio\n- **Pregunta en el subject**: +14%\n\n## Palabras que MATAN tu tasa de apertura\n\n- Gratis / Free\n- ¡Oferta!\n- Haz clic aquí\n- No te pierdas\n- Urgente\n\nEstas palabras activan filtros de spam y condicionan al lector a ignorar.\n\n## Patrones que FUNCIONAN\n\n### El Cliffhanger\n\"Lo que nadie te dice sobre [X]...\"\n\n### La Especificidad\n\"Cómo pasé de 0 a 2,400 suscriptores en 47 días\"\n\n### La Curiosidad Directa\n\"¿Por qué el 94% de las startups falla en esto?\"\n\n### La Controversia Controlada\n\"El consejo de marketing que te han dado está equivocado\"\n\n### El Beneficio Tiempo\n\"En 6 minutos aprenderás X\"\n\n## Fórmula ganadora\n\n`[Número/Tiempo] + [Beneficio específico] + [Elemento de curiosidad]`\n\nEjemplo: \"En 3 pasos: el sistema que usan los mejores copywriters\"\n\n## A/B Testing: Reglas básicas\n\n1. Prueba una variable a la vez\n2. Mínimo 1,000 destinatarios por variante\n3. Mide a las 24 horas, no antes\n4. El ganador por tasa de apertura, no de clics",
+    "category": "marketing",
+    "date": "2026-05-10",
+    "tags": ["email marketing", "subject lines", "conversión", "A/B testing"],
+    "status": "completed"
+  },
+  {
+    "id": "mcp-servers-claude-2026",
+    "title": "MCP Servers para Claude: Los Más Útiles en 2026",
+    "summary": "Los Model Context Protocol servers más valiosos para potenciar Claude Code. Desde acceso a bases de datos hasta integraciones con Slack, GitHub y herramientas de diseño.",
+    "content": "# MCP Servers para Claude: Los Más Útiles en 2026\n\n## ¿Qué es MCP?\n\nModel Context Protocol (MCP) es un estándar que permite a Claude conectarse con herramientas y sistemas externos. Piensa en ellos como plugins que extienden las capacidades del agente.\n\n## Los MCP servers más valiosos\n\n### Para Desarrollo\n| Server | Función |\n|--------|----------|\n| `github` | Leer/escribir repos, PRs, issues |\n| `filesystem` | Acceso ampliado al sistema de archivos |\n| `postgres` | Consultas directas a bases de datos |\n| `docker` | Control de containers |\n\n### Para Productividad\n| Server | Función |\n|--------|----------|\n| `slack` | Leer y enviar mensajes |\n| `google-drive` | Acceso a documentos |\n| `notion` | Leer y editar páginas |\n| `linear` | Gestión de tickets |\n\n### Para Investigación\n| Server | Función |\n|--------|----------|\n| `brave-search` | Búsquedas web |\n| `puppeteer` | Scraping y automatización web |\n| `fetch` | Obtener contenido de URLs |\n\n## Cómo instalar un MCP\n\n```json\n// ~/.claude/settings.json\n{\n  \"mcpServers\": {\n    \"github\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@modelcontextprotocol/server-github\"],\n      \"env\": { \"GITHUB_TOKEN\": \"tu-token\" }\n    }\n  }\n}\n```\n\n## Conclusión\n\nLos MCP servers convierten a Claude en un agente verdaderamente autónomo. La combinación de `github` + `filesystem` + `brave-search` es suficiente para el 90% de tareas de desarrollo.",
+    "category": "ai-claude",
+    "date": "2026-05-08",
+    "tags": ["MCP", "claude-code", "integraciones", "automatización"],
+    "status": "completed",
+    "sources": [
+      { "title": "MCP Registry", "url": "https://github.com/modelcontextprotocol/servers" }
+    ]
+  },
+  {
+    "id": "solopreneur-tech-stack-2026",
+    "title": "El Tech Stack del Solopreneur Moderno en 2026",
+    "summary": "Las herramientas esenciales para construir y escalar un negocio digital solo. Desde infraestructura hasta marketing, el stack completo con costos reales.",
+    "content": "# El Tech Stack del Solopreneur Moderno en 2026\n\n## Principio fundamental\n\nMenos herramientas, más profundidad. El solopreneur exitoso domina 5-7 herramientas en lugar de tocar 20 superficialmente.\n\n## El stack completo\n\n### Infraestructura\n- **Vercel**: Hosting de apps ($0-20/mes)\n- **Supabase**: Base de datos + auth ($0-25/mes)\n- **Cloudflare**: DNS + CDN + Workers (gratis)\n\n### Desarrollo\n- **Claude Code**: Agente de desarrollo IA ($20/mes)\n- **Cursor**: IDE con IA ($20/mes)\n- **GitHub**: Control de versiones (gratis)\n\n### Marketing\n- **Beehiiv**: Newsletter ($0-42/mes)\n- **Framer**: Landing pages ($0-15/mes)\n- **Buffer**: Redes sociales ($6/mes)\n\n### Pagos y Finanzas\n- **Stripe**: Pagos (2.9% + $0.30)\n- **Lemon Squeezy**: Productos digitales (5%)\n- **Mercury**: Banco digital (gratis)\n\n### Productividad\n- **Notion**: Docs y gestión ($8/mes)\n- **Raycast**: Launcher + snippets (gratis)\n- **Cron**: Calendario profesional (gratis)\n\n## Costo total mensual estimado\n\n| Tier | Costo |\n|------|-------|\n| Mínimo (bootstrapping) | ~$50/mes |\n| Operacional estándar | ~$130/mes |\n| Escalando activamente | ~$250/mes |\n\n## La regla del 1%\n\nCada herramienta debe generarte al menos 100x su costo mensual en valor. Si no puedes calcular ese ROI, probablemente no la necesitas.",
+    "category": "business",
+    "date": "2026-05-05",
+    "tags": ["solopreneur", "tech stack", "herramientas", "costos"],
+    "status": "completed"
+  }
+]
